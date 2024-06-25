@@ -1,28 +1,11 @@
-# from selenium.webdriver.common.by import By
-#
-# class AdminPage:
-#     def __init__(self, driver):
-#         self.driver = driver
-#         self.title = "OrangeHRM"
-#         self.user_management = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[1]')
-#         self.job = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[2]')
-#         self.organization = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]')
-#         self.qualifications = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[4]')
-#         self.nationalities = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[5]')
-#         self.corporate_banking = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[6]/ul/div[1]/li/a')
-#         self.configuration = (By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[6]/ul/div[2]/li/a')
-#
-#     def is_title_correct(self):
-#         return self.driver.title == self.title
-#
-#     def is_element_present(self, *locator):
-#         return len(self.driver.find_elements(*locator)) > 0
 from selenium.webdriver.common.by import By
 
+# Define a class to handle the Admin page elements and actions
 class AdminPage:
     def __init__(self, driver):
         self.driver = driver
-        self.title = "OrangeHRM"
+        self.title = "OrangeHRM"  # Expected title of the Admin page
+        # Locators for various elements on the Admin page
         self.user_management = (By.XPATH, '//span[text()="User Management"]')
         self.job = (By.XPATH, '//span[text()="Job"]')
         self.organization = (By.XPATH, '//span[text()="Organization"]')
@@ -33,12 +16,15 @@ class AdminPage:
         self.username = (By.XPATH, '//a[text()="Username"]')
         self.job_menu = (By.XPATH, '//a[text()="Job"]')
 
+    # Method to check if the page title is correct or not
     def is_title_correct(self):
         return self.driver.title == self.title
 
+    # Method to check if an element is present on the page
     def is_element_present(self, *locator):
         return len(self.driver.find_elements(*locator)) > 0
 
+    # Method to validate the presence of all specified elements on the page
     def validate_elements(self):
         return {
             "User Management": self.is_element_present(*self.user_management),
@@ -51,4 +37,5 @@ class AdminPage:
             "Username": self.is_element_present(*self.username),
             "Job Menu": self.is_element_present(*self.job_menu)
         }
+
 
