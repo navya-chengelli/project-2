@@ -8,14 +8,7 @@ class LoginPage:
         self.password_input = (By.XPATH,'//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input')
         self.login_button = (By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button')
 
-    # def enter_username(self, username):
-    #     self.driver.find_element(*self.username_input).send_keys(username)
-    #
-    # def enter_password(self, password):
-    #     self.driver.find_element(*self.password_input).send_keys(password)
-    #
-    # def click_login(self):
-    #     self.driver.find_element(*self.login_button).click()
+   
     def login_form(self, username, password):
         # Wait for the username field and enter the username
         WebDriverWait(self.driver, 10).until(
